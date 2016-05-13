@@ -35,6 +35,16 @@ class Signatures implements SignatureInterface
     }
 
     /**
+     * Register a signature.
+     *
+     * @param SignatureInterface $signature
+     */
+    public function register(SignatureInterface $signature)
+    {
+        $this->signatures[] = $signature;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function sign($message, $key, $algorithm = null)
