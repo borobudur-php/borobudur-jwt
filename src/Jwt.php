@@ -98,7 +98,7 @@ class Jwt
             );
         }
         
-        if ($payload->getExpires() && $payload->getExpires() > (time() + $this->delay)) {
+        if ($payload->getExpires() && (time() + $this->delay) > $payload->getExpires()) {
             throw new SignatureInvalidException('Expired token.');
         }
         
